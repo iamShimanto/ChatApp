@@ -1,12 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router'
+import React from "react";
+import { Link } from "react-router";
 
-const Mainbtn = ({title}) => {
+const Mainbtn = ({ title }) => {
   return (
-      <>
-          <Link className='py-3 px-8 hover:bg-black hover:text-white ease-in-out duration-300 border border-primary rounded-lg text-lg font-inter font-semibold text-primary' to="/">{title}</Link>
-      </>
-  )
-}
+    <>
+      <Link
+        className="py-3 px-8 hover:bg-[#7289DA] hover:text-white ease-in-out duration-300 border border-[#7289DA] rounded-lg text-lg font-inter font-semibold text-[#7289DA]"
+        to="/"
+      >
+        {title}
+      </Link>
+    </>
+  );
+};
 
-export default Mainbtn
+export default Mainbtn;

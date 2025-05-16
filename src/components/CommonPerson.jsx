@@ -11,7 +11,7 @@ const CommonPerson = ({
 }) => {
   return (
     <>
-      <div className={`${styling} flex justify-between p-3 rounded-sm cursor-pointer hover:shadow-sm duration-300 mb-1`}>
+      <div className={`${styling} flex justify-between p-3 rounded-sm cursor-pointer hover:scale-105 hover:shadow-sm duration-300 mb-1`}>
         <div className="profile flex gap-4">
           <img className="w-12 h-12 rounded-full" src={image} alt="logo" />
           <div className="name">

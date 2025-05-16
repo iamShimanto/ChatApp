@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
-
-@utility container{
-    margin-inline : auto;
-    padding-inline : 2rem;
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
 }
 
 @theme {
-    --font-inter : "Inter", sans-serif;
-    --color-primary : #32375C;
-    --color-secondary : #7A7A7A;
-    --color-black22 : #222222;
-    --color-personBg : #5B5F7D;
+  --font-inter: "Inter", sans-serif;
+  --color-primary: #7289da;
+  --color-secondary: #99aab5;
+  --color-personBg: #1a1d21;
+  --color-dark-bg: #0f1012;
+  --color-dark-secondary: #16181c;
+  --color-message-bg: #1e2124;
+  --color-hover: #7289da;
+  --color-input-bg: #1e2124;
+  --color-text: #ffffff;
+  --color-text-secondary: #99aab5;
 }
