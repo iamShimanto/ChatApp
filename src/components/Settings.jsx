@@ -8,7 +8,7 @@ import { IoSettings } from "react-icons/io5";
 const Settings = () => {
   return (
     <>
-      <div className="pt-12.5 pl-3 pr-7 pb-10.5 w-fit shadow-2xl flex flex-col justify-between h-screen">
+      <div className="pt-12.5 pl-3 pr-7 pb-10.5 shadow-2xl flex flex-col justify-between h-screen">
         <div className="heading pl-3">
           <h2 className="text-4xl font-bold font-inter text-primary">Chat</h2>
           <div className="flex flex-col gap-4 mt-25">
