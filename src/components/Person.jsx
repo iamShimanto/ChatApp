@@ -8,7 +8,8 @@ const Person = () => {
     <>
       <div className="px-4 pt-12.5 bg-[#16181C] h-screen">
         <div className="heading flex justify-between items-center">
-          <h2 className="text-xl font-semibold font-inter text-white">Chat</h2>
+          <Mainbtn path="/login" title="Login" />
+          <Mainbtn path="register" title="Register" />
           <Mainbtn title="Add" />
         </div>
         <div className="search flex items-center gap-2.5 border-b-2 mt-6 mb-4.25 border-[#7289DA] text-xl font-semibold font-inter text-[#7289DA]">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
+import Mainbtn from "../utils/Mainbtn"
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -36,6 +37,9 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0F1012] px-4">
+      <div className="absolute top-10 left-10">
+        <Mainbtn title="Return Home" />
+      </div>
       <div className="bg-[#16181C] p-8 rounded-xl shadow-2xl w-full max-w-md transform transition-all hover:scale-[1.01]">
         <div className="mb-8 text-center">
           <h2 className="text-4xl font-bold text-[#7289DA] mb-2">

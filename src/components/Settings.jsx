@@ -11,28 +11,29 @@ const Settings = () => {
       <div className="pt-12.5 pl-3 pr-7 pb-10.5 shadow-2xl flex flex-col justify-between h-screen bg-[#16181C]">
         <div className="heading pl-3">
           <h2 className="text-4xl font-bold font-inter text-[#7289DA]">Chat</h2>
-          <div className="flex flex-col gap-4 mt-25">
-            <Link
-              className="flex items-center gap-2 text-lg font-semibold font-inter text-white bg-[#7289DA] w-30 justify-center py-3 rounded-sm hover:bg-[#5869a6] duration-300"
-              to="/"
-            >
-              <GrChat /> Chat
-            </Link>
-            <Link
-              className="flex items-center gap-2 text-lg font-semibold font-inter text-[#99AAB5] bg-[#40444B] w-30 justify-center py-3 rounded-sm hover:bg-[#7289DA] hover:text-white duration-300"
-              to="/"
-            >
-              <MdGroup className="text-2xl" /> Group
-            </Link>
-            <Link
-              className="flex items-center gap-2 text-lg font-semibold font-inter text-[#99AAB5] bg-[#40444B] w-30 justify-center py-3 rounded-sm hover:bg-[#7289DA] hover:text-white duration-300"
-              to="/"
-            >
-              <FaBars className="border border-[#7289DA] p-1 rounded-full text-2xl" />{" "}
-              People
-            </Link>
-          </div>
         </div>
+        <div className="flex flex-col gap-4">
+          <Link
+            className="flex items-center gap-2 text-lg font-semibold font-inter text-white bg-[#7289DA] w-30 justify-center py-3 rounded-sm hover:bg-[#5869a6] duration-300"
+            to="/"
+          >
+            <GrChat /> Chat
+          </Link>
+          <Link
+            className="flex items-center gap-2 text-lg font-semibold font-inter text-[#99AAB5] bg-[#40444B] w-30 justify-center py-3 rounded-sm hover:bg-[#7289DA] hover:text-white duration-300"
+            to="/"
+          >
+            <MdGroup className="text-2xl" /> Group
+          </Link>
+          <Link
+            className="flex items-center gap-2 text-lg font-semibold font-inter text-[#99AAB5] bg-[#40444B] w-30 justify-center py-3 rounded-sm hover:bg-[#7289DA] hover:text-white duration-300"
+            to="/"
+          >
+            <FaBars className="border border-[#7289DA] p-1 rounded-full text-2xl" />{" "}
+            People
+          </Link>
+        </div>
+
         <div className="bottom flex gap-2">
           <img
             className="w-9 h-9 rounded-full"
