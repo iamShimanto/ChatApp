@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
-import Mainbtn from "../utils/Mainbtn"
+import Mainbtn from "../utils/Mainbtn";
 
 const Register = () => {
   const [username, setUsername] = useState("");

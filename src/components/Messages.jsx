@@ -26,7 +26,7 @@ const Messages = () => {
             <BsThreeDotsVertical className="cursor-pointer hover:text-[#7289DA]" />
           </div>
         </div>
-        <div className="message">
+        <div className="message overflow-y-auto h-[calc(100vh-180px)]">
           <MessageCard message1="Hi" message2="Hlw" />
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
@@ -34,8 +34,10 @@ const Messages = () => {
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
+          <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
+          <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
         </div>
-        <div className="mt-18 ml-4 mr-6 bg-[#1E2124] px-3 py-4 flex items-center rounded-lg">
+        <div className="mt-2 ml-4 mr-6 bg-[#1E2124] px-3 py-4 flex items-center rounded-lg">
           <input
             className="w-full outline-none rounded-md pl-3 text-base font-normal font-inter text-white bg-transparent placeholder-[#99AAB5]"
             type="text"
