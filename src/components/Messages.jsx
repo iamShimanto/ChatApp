@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoCallOutline, IoSend, IoVideocamOutline } from "react-icons/io5";
 import MessageCard from "../utils/MessageCard";
@@ -6,6 +6,16 @@ import { RiGalleryLine } from "react-icons/ri";
 import { GrEmoji } from "react-icons/gr";
 
 const Messages = () => {
+  const messagesEnd = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEnd.current?.scrollIntoView({ behavior: "auto" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, []);
+
   return (
     <>
       <div className="h-screen bg-[#0F1012]">
@@ -36,6 +46,7 @@ const Messages = () => {
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
           <MessageCard message1="Hi" message2="Hlw" styling="mt-17" />
+          <div ref={messagesEnd} />
         </div>
         <div className="mt-2 ml-4 mr-6 bg-[#1E2124] px-3 py-4 flex items-center rounded-lg">
           <input
