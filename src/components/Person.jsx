@@ -31,8 +31,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/naruto.png"
+            name="Naruto Uzumaki"
             message="I Hate You"
             time="12 : 30 am"
             styling="bg-[#1A1D21]"
@@ -40,8 +40,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/kakashi.png"
+            name="Kakashi Hatake"
             message="Slap You...."
             time="12 : 30 am"
             styling="bg-[#1E2124]"
@@ -49,8 +49,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/luffy.jpg"
+            name="Monkey D. Luffy"
             message="Faull........"
             time="12 : 30 am"
             styling="bg-[#1A1D21]"
@@ -58,8 +58,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/madara.jpg"
+            name="Madara Uchiha"
             message="Need Money ....."
             time="12 : 30 am"
             styling="bg-[#1E2124]"
@@ -67,8 +67,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/eren.jpg"
+            name="Eren Yeager"
             message="Love You ....."
             time="12 : 30 am"
             styling="bg-[#1A1D21]"
@@ -76,8 +76,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/mickey.jpeg"
+            name="Manjiro Sano Mikey"
             message="Slap You ...."
             time="12 : 30 am"
             styling="bg-[#1E2124]"
@@ -85,8 +85,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/tomyo.jpg"
+            name="Giyu Tomioka"
             message="Faull........"
             time="12 : 30 am"
             styling="bg-[#1A1D21]"
@@ -94,8 +94,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/sasuke.jpg"
+            name="Sasuke Uchiha"
             message="Need Money ....."
             time="12 : 30 am"
             styling="bg-[#1E2124]"
@@ -103,8 +103,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/levi.jpg"
+            name="Levi Ackerman"
             message="Need Money ....."
             time="12 : 30 am"
             styling="bg-[#1A1D21]"
@@ -112,8 +112,8 @@ const Person = () => {
             stylingMessage="text-[#99AAB5]"
           />
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
+            image="images/zenetsu.jpeg"
+            name="Zenitsu Agatsuma"
             message="Need Money ....."
             time="12 : 30 am"
             styling="bg-[#1E2124]"
