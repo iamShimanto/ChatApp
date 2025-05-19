@@ -22,15 +22,6 @@ const Person = () => {
         </div>
         <div className="person overflow-y-auto h-[calc(100vh-180px)] overflow-x-hidden">
           <CommonPerson
-            image="images/shimanto.jpg"
-            name="Shimanto Sarkar"
-            message="I love You"
-            time="12 : 00 am"
-            styling="bg-[#1E2124]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
             image="images/naruto.png"
             name="Naruto Uzumaki"
             message="I Hate You"
@@ -106,6 +97,24 @@ const Person = () => {
             image="images/levi.jpg"
             name="Levi Ackerman"
             message="Need Money ....."
+            time="12 : 30 am"
+            styling="bg-[#1A1D21]"
+            stylingName="text-white"
+            stylingMessage="text-[#99AAB5]"
+          />
+          <CommonPerson
+            image="images/zenetsu.jpeg"
+            name="Zenitsu Agatsuma"
+            message="Need Money ....."
+            time="12 : 30 am"
+            styling="bg-[#1E2124]"
+            stylingName="text-white"
+            stylingMessage="text-[#99AAB5]"
+          />
+          <CommonPerson
+            image="images/eren.jpg"
+            name="Eren Yeager"
+            message="Love You ....."
             time="12 : 30 am"
             styling="bg-[#1A1D21]"
             stylingName="text-white"
