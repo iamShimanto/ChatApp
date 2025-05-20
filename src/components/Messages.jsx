@@ -23,11 +23,11 @@ const Messages = () => {
           <div className="flex items-center gap-4 cursor-pointer">
             <img
               className="h-12 w-12 rounded-full"
-              src="images/shimanto.jpg"
+              src="images/naruto.png"
               alt="logo"
             />
             <h5 className="text-lg font-semibold font-inter text-white">
-              Shimanto Sarkar
+              Naruto Uzumaki
             </h5>
           </div>
           <div className="flex items-center gap-4 text-2xl text-[#99AAB5]">
