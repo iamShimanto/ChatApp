@@ -21,7 +21,7 @@ const Settings = () => {
           </Link>
           <Link
             className="flex items-center gap-2 text-lg font-semibold font-inter text-[#99AAB5] bg-[#40444B] w-30 justify-center py-3 rounded-sm hover:bg-[#7289DA] hover:text-white duration-300"
-            to="/"
+            to="/group"
           >
             <MdGroup className="text-2xl" /> Group
           </Link>

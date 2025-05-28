@@ -8,13 +8,10 @@ const Chat = () => {
     <>
       <section className="h-screen overflow-hidden">
         <div className="main flex">
-          <div className="settings w-2/14">
-            <Settings />
-          </div>
-          <div className="person w-4/14">
+          <div className="person w-[60vh]">
             <Person />
           </div>
-          <div className="messages w-8/14">
+          <div className="messages w-[120vh]">
             <Messages />
           </div>
         </div>
