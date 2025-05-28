@@ -1,16 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router'
-import Settings from '../components/Settings';
+import React from "react";
+import { Outlet } from "react-router";
+import Navbar from "./Navbar";
 
 const Layout = () => {
   return (
-    <div className='flex w-full'>
-      <div className="settings w-[30vh]">
-        <Settings />
+    <div className="flex w-full">
+      <div className="w-[30vh]">
+        <Navbar />
       </div>
       <Outlet />
     </div>
   );
-}
+};
 
-export default Layout
+export default Layout;

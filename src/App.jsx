@@ -6,17 +6,16 @@ import Register from "./pages/Register";
 import Group from "./pages/Group";
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="/group" element={<Group/>}/>
+            <Route path="/group" element={<Group />} />
           </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -5,7 +5,7 @@ import { MdGroup } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 
-const Settings = () => {
+const Navbar = () => {
   return (
     <>
       <div className="pt-12.5 pl-3 pr-7 pb-10.5 shadow-2xl flex flex-col justify-between h-screen bg-[#16181C]">
@@ -57,4 +57,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default Navbar;

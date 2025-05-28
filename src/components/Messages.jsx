@@ -19,7 +19,7 @@ const Messages = () => {
   return (
     <>
       <div className="h-screen bg-[#0F1012]">
-        <div className="heading flex justify-between items-center shadow-sm pb-3 pt-12.5 pl-3 pr-6 bg-[#16181C]">
+        <div className="heading flex justify-center items-center shadow-sm pb-3 pt-12.5 pl-3 pr-6 bg-[#16181C]">
           <div className="flex items-center gap-4 cursor-pointer">
             <img
               className="h-12 w-12 rounded-full"
@@ -29,11 +29,6 @@ const Messages = () => {
             <h5 className="text-lg font-semibold font-inter text-white">
               Naruto Uzumaki
             </h5>
-          </div>
-          <div className="flex items-center gap-4 text-2xl text-[#99AAB5]">
-            <IoCallOutline className="cursor-pointer hover:text-[#7289DA]" />
-            <IoVideocamOutline className="cursor-pointer hover:text-[#7289DA]" />
-            <BsThreeDotsVertical className="cursor-pointer hover:text-[#7289DA]" />
           </div>
         </div>
         <div className="message overflow-y-auto h-[calc(100vh-180px)]">

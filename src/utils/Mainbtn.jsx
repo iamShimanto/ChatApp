@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-const Mainbtn = ({ title , path ="/"}) => {
+const Mainbtn = ({ title, path = "/" }) => {
   return (
     <>
       <Link
