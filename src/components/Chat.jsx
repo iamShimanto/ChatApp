@@ -10,7 +10,7 @@ const Chat = () => {
           <div className="person w-[60vh]">
             <Person />
           </div>
-          <div className="messages w-[120vh]">
+          <div className="messages w-[140vh]">
             <Messages />
           </div>
         </div>
