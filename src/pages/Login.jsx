@@ -14,10 +14,10 @@ const Login = () => {
   });
   const auth = getAuth();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    await signInWithEmailAndPassword(auth, userData.email, userData.password)
+   signInWithEmailAndPassword(auth, userData.email, userData.password)
       .then(() => {
         if (auth.currentUser.emailVerified) {
           navigate("/chat");
