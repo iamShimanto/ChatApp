@@ -67,7 +67,6 @@ const Register = () => {
           </h2>
           <p className="text-[#99AAB5]">Join our community today!</p>
         </div>
-
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="relative group">
             <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#99AAB5] group-hover:text-[#7289DA] transition-colors" />
