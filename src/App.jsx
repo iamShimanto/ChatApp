@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Group from "./pages/Group";
 import Reset from "./pages/Reset";
 import Profile from "./pages/Profile";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset" element={<Reset/>}/>
+          <Route path="*" element={<Error/>}/>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/group" element={<Group />} />
