@@ -36,7 +36,7 @@ const Register = () => {
               "Registration SuccessFull , Please verify your Email!"
             );
             setTimeout(() => {
-              navigate("/");
+              navigate("/login");
             }, 2000);
           });
         });

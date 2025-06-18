@@ -2,24 +2,25 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
-  const userData = useSelector((state) => state.userData.user);
-
+  const userInfo = useSelector((state) => state.userData.user);
   return (
     <div className="flex justify-center items-center w-full">
-      <div className="card">
+      <div className="card cursor-pointer hover:scale-105 duration-300">
         <center>
           <div className="profileimage">
             <img
               className="rounded-full"
-              src={userData.photoURL}
+              src={userInfo.photoURL}
               alt="profile_photo"
             />
           </div>
           <div className="Name">
-            <p>{userData.displayName}</p>
+            <p>{userInfo.displayName}</p>
           </div>
           <div className="email">
-            <p className="text-white font-inter font-thin text-sm">{userData.email}</p>
+            <p className="text-white font-inter font-thin text-sm">
+              {userInfo.email}
+            </p>
           </div>
           <div className="socialbar flex justify-center items-center gap-1.5">
             <a id="github" href="#">

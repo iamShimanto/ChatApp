@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router";
+import { Link, Navigate } from "react-router";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
@@ -8,9 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loggedUser } from "../store/slices/authSlice";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userInfo = useSelector((state)=> state.userData.user)
+  const userInfo = useSelector((state) => state.userData.user);
   const [isOpen, setIsOpen] = useState(true);
   const [userData, setUserData] = useState({
     email: "",
@@ -25,10 +24,6 @@ const Login = () => {
       .then((res) => {
         if (auth.currentUser.emailVerified) {
           dispatch(loggedUser(res.user));
-          toast.success("SignIn SuccessFull!");
-          setTimeout(() => {
-            navigate("/");
-          }, 2000);
         } else {
           toast.error("Email isn't Verified!");
         }
@@ -47,9 +42,8 @@ const Login = () => {
   };
 
   if (userInfo) {
-    return <Navigate to="/" />
+    return <Navigate to="/" />;
   }
-  console.log(userInfo)
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0F1012] px-4">

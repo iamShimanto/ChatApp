@@ -4,17 +4,14 @@ import { GrChat } from "react-icons/gr";
 import { MdGroup } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loggedUser } from "../store/slices/authSlice";
 
 const Navbar = () => {
-  const userData = useSelector((state) => state.userData.user);
   const dispatch = useDispatch();
-
   const handleSignOut = () => {
     dispatch(loggedUser(null));
   };
-
   return (
     <>
       <div className="pt-12.5 pl-3 pr-7 pb-10.5 shadow-2xl flex flex-col justify-between h-screen bg-[#16181C]">
@@ -43,16 +40,16 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="bottom flex flex-col gap-3">
-          <div className="flex gap-2">
+        <div className="flex flex-col gap-3">
+          <Link to="/profile" className="bottom flex gap-2">
             <img
               className="w-9 h-9 rounded-full"
-              src={userData.photoURL}
+              src="images/shimanto.jpg"
               alt="logo"
             />
-            <Link to="/profile">
+            <div>
               <h4 className="text-base font-semibold font-inter text-white cursor-pointer hover:text-[#7289DA] duration-300">
-                {userData.displayName}
+                Shimanto Sarkar
               </h4>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-inter font-normal text-[#99AAB5] cursor-pointer hover:text-[#7289DA] duration-300">
@@ -60,10 +57,10 @@ const Navbar = () => {
                 </p>
                 <IoSettings className="text-xl text-[#99AAB5] cursor-pointer hover:text-[#7289DA] duration-300" />
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
           <button
-            className="py-2 bg-red-400 rounded-2xl text-white cursor-pointer hover:bg-red-500 duration-300"
+            className="py-2 bg-red-400 rounded-2xl cursor-pointer hover:bg-red-500 duration-300 text-white font-inter font-semibold text-base"
             onClick={handleSignOut}
           >
             SignOut

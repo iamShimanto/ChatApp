@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 const Layout = () => {
   const userData = useSelector((state) => state.userData.user);
 
-  console.log(userData)
   if (!userData) {
     return <Navigate to="/login" />;
   }
