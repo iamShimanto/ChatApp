@@ -4,11 +4,12 @@ import { GrChat } from "react-icons/gr";
 import { MdGroup } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loggedUser } from "../store/slices/authSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.userData.user);
   const handleSignOut = () => {
     dispatch(loggedUser(null));
   };
@@ -40,16 +41,16 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex flex-col gap-3">
-          <Link to="/profile" className="bottom flex gap-2">
+        <div className="flex flex-col gap-3 items-center">
+          <Link to="/profile" className="bottom flex gap-3">
             <img
               className="w-9 h-9 rounded-full"
-              src="images/shimanto.jpg"
+              src={userInfo.photoURL}
               alt="logo"
             />
             <div>
               <h4 className="text-base font-semibold font-inter text-white cursor-pointer hover:text-[#7289DA] duration-300">
-                Shimanto Sarkar
+                {userInfo.displayName}
               </h4>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-inter font-normal text-[#99AAB5] cursor-pointer hover:text-[#7289DA] duration-300">
@@ -60,7 +61,7 @@ const Navbar = () => {
             </div>
           </Link>
           <button
-            className="py-2 bg-red-400 rounded-2xl cursor-pointer hover:bg-red-500 duration-300 text-white font-inter font-semibold text-base"
+            className="py-2 bg-red-400 rounded-2xl cursor-pointer hover:bg-red-500 duration-300 text-white font-inter font-semibold text-base w-full"
             onClick={handleSignOut}
           >
             SignOut
