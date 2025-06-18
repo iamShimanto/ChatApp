@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import {
@@ -9,9 +9,11 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 const Register = () => {
   const navigate = useNavigate();
+  const userInfo = useSelector((state) => state.userData.user);
   const [isOpen, setIsOpen] = useState(true);
   const [userData, setUserData] = useState({
     username: "",
@@ -56,6 +58,10 @@ const Register = () => {
         }
       });
   };
+
+  if (userInfo) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#0F1012] px-4">

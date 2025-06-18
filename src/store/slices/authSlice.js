@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const authSlice = createSlice({
+  name: "auth",
   initialState: {
-    value: 0,
+    user: JSON.parse(localStorage.getItem("userData")) || null,
   },
   reducers: {
-    
+    loggedUser: (state, action) => {
+      state.user = action.payload;
+      localStorage.setItem("userData", JSON.stringify(action.payload));
+    },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { loggedUser } = authSlice.actions;
 
-export default counterSlice.reducer;
+export default authSlice.reducer;

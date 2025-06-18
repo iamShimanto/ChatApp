@@ -18,3 +18,36 @@
   --color-text: #ffffff;
   --color-text-secondary: #99aab5;
 }
+
+.card {
+  @apply w-[280px] h-[280px] bg-[#191919] shadow-[5px_5px_30px_rgb(4,4,4),-5px_-5px_30px_rgb(57,57,57)] p-2.5 rounded-[2em];
+}
+.profileimage {
+  @apply bg-transparent w-[100px] h-[100px] mt-5 rounded-[5em] border-[none];
+}
+.pfp {
+  @apply fill-[white] rounded-[35em];
+}
+.Name {
+  @apply text-[white] text-xl mt-2.5 p-[15px];
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.socialbar {
+  @apply bg-[#191919] w-[90%] text-[white] shadow-[3px_3px_15px_rgb(0,0,0),-3px_-3px_15px_rgb(58,58,58)] mt-[15px] p-3.5 rounded-[3em];
+}
+.card a {
+  @apply transition-[0.4s] text-[white];
+}
+#github:hover {
+  @apply text-[#c9510c];
+}
+#instagram:hover {
+  @apply text-[#d62976];
+}
+#facebook:hover {
+  @apply text-[#3b5998];
+}
+#twitter:hover {
+  @apply text-[#00acee];
+}
