@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 const Layout = () => {
   return (
     <div className="flex w-full">
-      <div className="w-[25vh]">
+      <div className="w-[35vh]">
         <Navbar />
       </div>
       <Outlet />

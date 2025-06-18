@@ -11,11 +11,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/reset" element={<Reset/>}/>
           <Route path="/" element={<Layout />}>
-            <Route path="/chat" element={<Home />} />
+            <Route index element={<Home />} />
             <Route path="/group" element={<Group />} />
           </Route>
         </Routes>

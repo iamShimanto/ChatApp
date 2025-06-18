@@ -20,7 +20,7 @@ const Login = () => {
    signInWithEmailAndPassword(auth, userData.email, userData.password)
       .then(() => {
         if (auth.currentUser.emailVerified) {
-          navigate("/chat");
+          navigate("/");
         } else {
           toast.error("Email isn't Verified!")
         }
