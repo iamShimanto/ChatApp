@@ -51,3 +51,29 @@
 #twitter:hover {
   @apply text-[#00acee];
 }
+
+.person::-webkit-scrollbar , .message::-webkit-scrollbar {
+  display: none;
+}
+
+.add {
+  box-sizing: border-box;
+  background: rgba(217, 217, 217, 0.58);
+  border: 2px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  transition: all 0.5s;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.add:hover {
+  border: 2px solid black;
+  transform: scale(1.03);
+}
+
+.add:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}

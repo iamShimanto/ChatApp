@@ -23,7 +23,7 @@ const Profile = () => {
     userName: "",
   });
 
-  document.addEventListener("mousedown", (e) => {
+  window.addEventListener("mousedown", (e) => {
     if (
       updateProfileRef.current &&
       !updateProfileRef.current.contains(e.target)
