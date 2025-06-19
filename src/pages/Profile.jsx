@@ -6,13 +6,22 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
+import { getAuth, updateProfile } from "firebase/auth";
+import { toast, ToastContainer } from "react-toastify";
+import { loggedUser } from "../store/slices/authSlice";
 
 const Profile = () => {
   const userInfo = useSelector((state) => state.userData.user);
+  const dispatch = useDispatch();
   const updateProfileRef = useRef(null);
   const [editable, setEditable] = useState(false);
+  const auth = getAuth();
+  const [updateData, setUpdateData] = useState({
+    avatar: "",
+    userName: "",
+  });
 
   document.addEventListener("mousedown", (e) => {
     if (
@@ -27,8 +36,24 @@ const Profile = () => {
     setEditable(true);
   };
 
+  const handleUpdate = () => {
+    updateProfile(auth.currentUser, {
+      displayName: updateData.userName || userInfo.displayName,
+      photoURL: updateData.avatar || userInfo.photoURL,
+    })
+      .then(() => {
+        toast.success("Profile Updated Successfully!");
+        dispatch(loggedUser(auth.currentUser));
+        setEditable(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="flex justify-center items-center w-full relative">
+      <ToastContainer position="top-right" autoClose={2000} />
       <div className="card duration-300 relative">
         <div
           onClick={handleEnableEdit}
@@ -78,19 +103,28 @@ const Profile = () => {
         >
           <div className=" flex flex-col items-center bg-brand p-8 rounded">
             <input
+              onChange={(e) =>
+                setUpdateData((prev) => ({ ...prev, avatar: e.target.value }))
+              }
               type="text"
               placeholder="Edit Your PhotoURL"
               className={`w-full pl-10 pr-4 py-4 bg-[#1E2124] border-2  "border-[#2C2F33]"
               rounded-lg text-white placeholder-[#99AAB5] focus:outline-none focus:border-[#7289DA] transition-all hover:border-[#7289DA] mb-2`}
             />
             <input
+              onChange={(e) =>
+                setUpdateData((prev) => ({ ...prev, userName: e.target.value }))
+              }
               type="text"
               placeholder="Edit Your Name"
               className={`w-full pl-10 pr-4 py-4 bg-[#1E2124] border-2  "border-[#2C2F33]"
               rounded-lg text-white placeholder-[#99AAB5] focus:outline-none focus:border-[#7289DA] transition-all hover:border-[#7289DA]`}
             />
             <div className="flex gap-5 justify-center mt-10">
-              <button className="py-2 px-3 bg-green-500 hover:bg-green-600 duration-300 rounded text-white cursor-pointer">
+              <button
+                onClick={handleUpdate}
+                className="py-2 px-3 bg-green-500 hover:bg-green-600 duration-300 rounded text-white cursor-pointer"
+              >
                 Update
               </button>
               <button
