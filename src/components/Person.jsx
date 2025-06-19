@@ -2,14 +2,30 @@ import React from "react";
 import Mainbtn from "../utils/Mainbtn";
 import { CiSearch } from "react-icons/ci";
 import CommonPerson from "./CommonPerson";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Person = () => {
+  const db = getDatabase();
+
+  const handleAdd = () => {
+    onValue(ref(db, "users/"), (snapshot) => {
+      
+    });
+  };
+
   return (
     <>
       <div className="px-4 pt-12.5 bg-[#16181C] h-screen">
         <div className="heading flex justify-between items-center">
-          <Mainbtn title="Chat" path="/" />
-          <Mainbtn title="Add" path="/" />
+          <button className="py-3 px-8 hover:bg-[#7289DA] hover:text-white ease-in-out duration-300 border border-[#7289DA] rounded-lg text-lg font-inter font-semibold text-[#7289DA]">
+            Chat
+          </button>
+          <button
+            onClick={handleAdd}
+            className="py-3 px-8 hover:bg-[#7289DA] hover:text-white ease-in-out duration-300 border border-[#7289DA] rounded-lg text-lg font-inter font-semibold text-[#7289DA]"
+          >
+            Add
+          </button>
         </div>
         <div className="search flex items-center gap-2.5 border-b-2 mt-6 mb-4.25 border-[#7289DA] text-xl font-semibold font-inter text-[#7289DA]">
           <CiSearch className="text-2xl" />

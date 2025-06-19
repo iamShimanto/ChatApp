@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import { useSelector } from "react-redux";
+import { getDatabase, ref, set } from "firebase/database";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const Register = () => {
     password: "",
   });
   const auth = getAuth();
+  const db = getDatabase();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +40,11 @@ const Register = () => {
             setTimeout(() => {
               navigate("/login");
             }, 2000);
+            set(ref(db, "users/" + auth.currentUser.uid), {
+              username: auth.currentUser.displayName,
+              email: auth.currentUser.email,
+              profile_picture: auth.currentUser.photoURL,
+            });
           });
         });
       })
