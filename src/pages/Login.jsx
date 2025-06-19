@@ -23,7 +23,10 @@ const Login = () => {
     signInWithEmailAndPassword(auth, userData.email, userData.password)
       .then((res) => {
         if (auth.currentUser.emailVerified) {
-          dispatch(loggedUser(res.user));
+          toast.success("LogIn Successfully!");
+          setTimeout(() => {
+            dispatch(loggedUser(res.user));
+          }, 1000);
         } else {
           toast.error("Email isn't Verified!");
         }
