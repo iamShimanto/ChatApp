@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { GrChat } from "react-icons/gr";
 import { MdGroup } from "react-icons/md";
@@ -7,16 +7,30 @@ import { IoSettings } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { loggedUser } from "../store/slices/authSlice";
 import { toast, ToastContainer } from "react-toastify";
+import { getDatabase, onValue, ref } from "firebase/database";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.userData.user);
+  const [userData, setUserdata] = useState([])
+
+
   const handleSignOut = () => {
     toast.success("LogOut Successfully!");
     setTimeout(() => {
       dispatch(loggedUser(null));
     }, 1000);
   };
+
+    useEffect(() => {
+      const db = getDatabase();
+      const starCountRef = ref(db, "users/" + userInfo.uid);
+      onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        setUserdata(data)
+      });
+    }, [])
+
   return (
     <>
       <ToastContainer position="top-right" autoClose={5000} />
@@ -50,12 +64,12 @@ const Navbar = () => {
           <Link to="/profile" className="bottom flex gap-3">
             <img
               className="w-9 h-9 rounded-full"
-              src={userInfo.photoURL}
+              src={userData.profile_picture}
               alt="logo"
             />
             <div>
               <h4 className="text-base font-semibold font-inter text-white cursor-pointer hover:text-[#7289DA] duration-300">
-                {userInfo.displayName}
+                {userData.username}
               </h4>
               <div className="flex items-center justify-between">
                 <p className="text-sm font-inter font-normal text-[#99AAB5] cursor-pointer hover:text-[#7289DA] duration-300">
