@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   FaEdit,
   FaFacebook,
@@ -11,7 +11,7 @@ import { Link } from "react-router";
 import { getAuth, updateProfile } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 import { loggedUser } from "../store/slices/authSlice";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, onValue, ref, update } from "firebase/database";
 
 const Profile = () => {
   const userInfo = useSelector((state) => state.userData.user);
@@ -46,7 +46,7 @@ const Profile = () => {
       .then(() => {
         toast.success("Profile Updated Successfully!");
         dispatch(loggedUser(auth.currentUser));
-        set(ref(db, "users/" + auth.currentUser.uid), {
+        update(ref(db, "users/" + auth.currentUser.uid), {
           username: updateData.userName || userInfo.displayName,
           profile_picture: updateData.avatar || userInfo.photoURL,
         });
@@ -56,6 +56,15 @@ const Profile = () => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    const db = getDatabase();
+    const starCountRef = ref(db, "users/" + auth.currentUser.uid);
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      console.log(data)
+    });
+  },[])
 
   return (
     <div className="flex justify-center items-center w-full relative">
