@@ -11,6 +11,7 @@ import { Link } from "react-router";
 import { getAuth, updateProfile } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
 import { loggedUser } from "../store/slices/authSlice";
+import { getDatabase, ref, set } from "firebase/database";
 
 const Profile = () => {
   const userInfo = useSelector((state) => state.userData.user);
@@ -22,6 +23,7 @@ const Profile = () => {
     avatar: "",
     userName: "",
   });
+  const db = getDatabase();
 
   window.addEventListener("mousedown", (e) => {
     if (
@@ -42,6 +44,10 @@ const Profile = () => {
       photoURL: updateData.avatar || userInfo.photoURL,
     })
       .then(() => {
+        set(ref(db, "users/" + auth.currentUser.uid), {
+          username: updateData.userName || userInfo.displayName,
+          profile_picture: updateData.avatar || userInfo.photoURL,
+        });
         toast.success("Profile Updated Successfully!");
         dispatch(loggedUser(auth.currentUser));
         setEditable(false);
