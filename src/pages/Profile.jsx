@@ -45,11 +45,11 @@ const Profile = () => {
     })
       .then(() => {
         toast.success("Profile Updated Successfully!");
+        dispatch(loggedUser(auth.currentUser));
         set(ref(db, "users/" + auth.currentUser.uid), {
           username: updateData.userName || userInfo.displayName,
           profile_picture: updateData.avatar || userInfo.photoURL,
         });
-        dispatch(loggedUser(auth.currentUser));
         setEditable(false);
       })
       .catch((error) => {

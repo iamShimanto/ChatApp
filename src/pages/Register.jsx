@@ -37,14 +37,14 @@ const Register = () => {
             toast.success(
               "Registration SuccessFull , Please verify your Email!"
             );
-            setTimeout(() => {
-              navigate("/login");
-            }, 2000);
             set(ref(db, "users/" + auth.currentUser.uid), {
               username: auth.currentUser.displayName,
               email: auth.currentUser.email,
               profile_picture: auth.currentUser.photoURL,
             });
+            setTimeout(() => {
+              navigate("/login");
+            }, 2000);
           });
         });
       })
