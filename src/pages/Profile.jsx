@@ -24,6 +24,7 @@ const Profile = () => {
     userName: "",
   });
   const db = getDatabase();
+  const [userData, setUserdata] = useState([])
 
   window.addEventListener("mousedown", (e) => {
     if (
@@ -59,12 +60,12 @@ const Profile = () => {
 
   useEffect(() => {
     const db = getDatabase();
-    const starCountRef = ref(db, "users/" + auth.currentUser.uid);
+    const starCountRef = ref(db, "users/" + userInfo.uid);
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      console.log(data)
+      setUserdata(data)
     });
-  },[])
+  }, [])
 
   return (
     <div className="flex justify-center items-center w-full relative">
@@ -80,16 +81,16 @@ const Profile = () => {
           <div className="profileimage">
             <img
               className="rounded-full"
-              src={userInfo.photoURL}
+              src={userData.profile_picture}
               alt="profile_photo"
             />
           </div>
           <div className="Name">
-            <p>{userInfo.displayName}</p>
+            <p>{userData.username}</p>
           </div>
           <div className="email">
             <p className="text-white font-inter font-thin text-sm">
-              {userInfo.email}
+              {userData.email}
             </p>
           </div>
           <div className="socialbar flex justify-center items-center gap-1.5">
