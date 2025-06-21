@@ -9,7 +9,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
 import { getAuth, updateProfile } from "firebase/auth";
-import { toast, ToastContainer } from "react-toastify";
 import { loggedUser } from "../store/slices/authSlice";
 import { getDatabase, onValue, ref, update } from "firebase/database";
 
@@ -45,7 +44,6 @@ const Profile = () => {
       photoURL: updateData.avatar || userInfo.photoURL,
     })
       .then(() => {
-        toast.success("Profile Updated Successfully!");
         dispatch(loggedUser(auth.currentUser));
         update(ref(db, "users/" + auth.currentUser.uid), {
           username: updateData.userName || userInfo.displayName,
@@ -69,7 +67,6 @@ const Profile = () => {
 
   return (
     <div className="flex justify-center items-center w-full relative">
-      <ToastContainer position="top-right" autoClose={2000} />
       <div className="card duration-300 relative">
         <div
           onClick={handleEnableEdit}
