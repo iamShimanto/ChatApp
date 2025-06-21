@@ -30,7 +30,6 @@ const Person = () => {
       setAdd(false);
     }
   });
-
   return (
     <>
       <div className="px-4 pt-12.5 bg-[#16181C] h-screen">
@@ -68,7 +67,8 @@ const Person = () => {
                   className={` flex justify-between items-center p-3 rounded-sm bg-slate-100 hover:scale-105 hover:shadow-sm duration-300 mb-1 add`}
                 >
                   <div className="profile flex gap-4">
-                    <div className="name">
+                    <div className="name flex items-center gap-1">
+                      <img className="w-10 h-10 rounded-full" src={item.profile_picture} alt="" />
                       <h4
                         className={`text-lg font-semibold font-inter cursor-pointer`}
                       >
