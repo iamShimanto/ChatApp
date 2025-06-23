@@ -3,7 +3,6 @@ import React from "react";
 const CommonPerson = ({
   image,
   name,
-  message,
   time,
   styling = "bg-white",
   stylingName = "text-black22",
@@ -20,7 +19,6 @@ const CommonPerson = ({
             <h4 className={`${stylingName} text-lg font-semibold font-inter`}>
               {name}
             </h4>
-            <p className={`${stylingMessage}`}>{message}</p>
           </div>
         </div>
         <p className={`${stylingMessage}`}>{time}</p>

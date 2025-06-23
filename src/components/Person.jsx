@@ -1,8 +1,7 @@
-import React, { useRef, useState } from "react";
-import Mainbtn from "../utils/Mainbtn";
+import React, { useEffect, useRef, useState } from "react";
 import { CiSearch } from "react-icons/ci";
 import CommonPerson from "./CommonPerson";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, set, push } from "firebase/database";
 import { useSelector } from "react-redux";
 
 const Person = () => {
@@ -11,6 +10,8 @@ const Person = () => {
   const [data, setData] = useState([]);
   const [add, setAdd] = useState(false);
   const addFriendRef = useRef(null);
+  const [friendList, setFriendList] = useState([]);
+  const [friend, setFriend] = useState([]);
 
   const handleAdd = () => {
     const arr = [];
@@ -30,6 +31,38 @@ const Person = () => {
       setAdd(false);
     }
   });
+
+  const handleAddFriend = (data) => {
+    set(push(ref(db, "friendList/")), {
+      creatorId: userInfo.uid,
+      creatorName: userInfo.displayName,
+      creatorAvater: userInfo.photoURL,
+      participantId: data.id,
+      participantName: data.username,
+      participantAvater: data.profile_picture,
+    });
+  };
+
+  useEffect(() => {
+    onValue(ref(db, "friendList"), (snapshot) => {
+      let arr = [];
+      snapshot.forEach((item) => {
+        arr.push(item.val().creatorId + item.val().participantId);
+      });
+      setFriendList(arr);
+    });
+  }, []);
+
+  useEffect(() => {
+    onValue(ref(db, "friendList"), (snapshot) => {
+      let arr = [];
+      snapshot.forEach((item) => {
+        arr.push({ ...item.val(), id: item.key });
+      });
+      setFriend(arr);
+    });
+  }, []);
+
   return (
     <>
       <div className="px-4 pt-12.5 bg-[#16181C] h-screen">
@@ -68,7 +101,11 @@ const Person = () => {
                 >
                   <div className="profile flex gap-4">
                     <div className="name flex items-center gap-1">
-                      <img className="w-10 h-10 rounded-full" src={item.profile_picture} alt="" />
+                      <img
+                        className="w-10 h-10 rounded-full"
+                        src={item.profile_picture}
+                        alt=""
+                      />
                       <h4
                         className={`text-lg font-semibold font-inter cursor-pointer`}
                       >
@@ -76,87 +113,49 @@ const Person = () => {
                       </h4>
                     </div>
                   </div>
-                  <button className="add px-3 py-1.5 cursor-pointer !rounded-lg">
-                    Add
-                  </button>
+                  {friendList.includes(item.id + userInfo.uid) ||
+                  friendList.includes(userInfo.uid + item.id) ? (
+                    <p>friend</p>
+                  ) : (
+                    <button
+                      onClick={() => handleAddFriend(item)}
+                      className="add px-3 py-1.5 cursor-pointer !rounded-lg"
+                    >
+                      Add
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
           )}
         </div>
         <div className="person overflow-y-auto h-[calc(100vh-180px)] overflow-x-hidden">
-          <CommonPerson
-            image="images/naruto.png"
-            name="Naruto Uzumaki"
-            message="I Hate You"
-            time="12 : 30 am"
-            styling="bg-[#1A1D21]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
-            image="images/kakashi.png"
-            name="Kakashi Hatake"
-            message="Slap You...."
-            time="12 : 30 am"
-            styling="bg-[#1E2124]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
-            image="images/luffy.jpg"
-            name="Monkey D. Luffy"
-            message="Faull........"
-            time="12 : 30 am"
-            styling="bg-[#1A1D21]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
-            image="images/madara.jpg"
-            name="Madara Uchiha"
-            message="Need Money ....."
-            time="12 : 30 am"
-            styling="bg-[#1E2124]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
-            image="images/eren.jpg"
-            name="Eren Yeager"
-            message="Love You ....."
-            time="12 : 30 am"
-            styling="bg-[#1A1D21]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
-            image="images/mickey.jpeg"
-            name="Manjiro Sano Mikey"
-            message="Slap You ...."
-            time="12 : 30 am"
-            styling="bg-[#1E2124]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
-            image="images/tomyo.jpg"
-            name="Giyu Tomioka"
-            message="Faull........"
-            time="12 : 30 am"
-            styling="bg-[#1A1D21]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
-          <CommonPerson
-            image="images/sasuke.jpg"
-            name="Sasuke Uchiha"
-            message="Need Money ....."
-            time="12 : 30 am"
-            styling="bg-[#1E2124]"
-            stylingName="text-white"
-            stylingMessage="text-[#99AAB5]"
-          />
+          {friend.map(
+            (item) =>
+              (item.creatorId == userInfo.uid && (
+                <CommonPerson
+                  key={item.id}
+                  name={item.participantName}
+                  image={item.participantAvater}
+                  time="12 : 30 am"
+                  styling="bg-[#1A1D21]"
+                  stylingName="text-white"
+                  stylingMessage="text-[#99AAB5]"
+                />
+              )) ||
+              (item.participantId == userInfo.uid && (
+                <CommonPerson
+                  key={item.id}
+                  name={item.creatorName}
+                  image={item.creatorAvater}
+                  message="I Hate You"
+                  time="12 : 30 am"
+                  styling="bg-[#1A1D21]"
+                  stylingName="text-white"
+                  stylingMessage="text-[#99AAB5]"
+                />
+              ))
+          )}
         </div>
       </div>
     </>
